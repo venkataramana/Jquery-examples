@@ -1,0 +1,162 @@
+<html>
+        <head> <title>Form_Validation</title>
+                <script type="text/javascript">
+                              function submit_val()
+                              {
+                                               var fname=document.forms["form1"]["fname"];
+                                               var lname=document.forms["form1"]["lname"];
+                                               var mail=document.forms["form1"]["email"];
+                                               var pswd=document.forms["form1"]["pwd"];
+                                               var cpswd=document.forms["form1"]["cpwd"];
+                                               var regx=/\d/;
+                                               var atposition=mail.value.indexOf("@");
+                                               var dotposition=mail.value.lastIndexOf(".");
+                                               var count=0;
+                                               if(fname.value=="" || fname.value==null)
+                                               {
+                                                        alert("Please enter first name");
+                                                        fname.focus();
+                                                        return false;
+                                               }
+                                               else if(document.form1.fname.value.search(regx) != -1)
+                                               {
+                                                         alert("numerics not allowed");
+                                                         fname.focus();
+                                                         return false;
+                                               }
+                                               else if(fname.length < 6 || fname.length > 30)
+                                                {
+                                                        alert("10 to 15 characters are required");
+                                                        return false;
+                                                }
+                                               else if(lname.value=="" || lname.value==null)
+                                               {
+                                                        alert("Please enter last name");
+                                                        lname.focus();
+                                                        return false;
+                                               }
+                                               else if(document.form1.fname.value.search(regx) != -1)
+                                               {
+                                                         alert("numerics not allowed");
+                                                         lname.focus();
+                                                         return false;
+                                               }
+                                               else if(lname.length<10 || lname.length>20)
+                                                {
+                                                         alert("10 to 15 characters are required");
+                                                         return false;
+                                                }
+
+                                               else if(mail.value=="" || mail.value==null)
+                                               {
+                                                           alert("Please enter email-id");
+                                                           mail.focus();
+                                                           return false;
+                                               }
+                                                else if(atposition < 6 || atposition > mail.value.length || dotposition < (atposition + 4) || dotposition > mail.value.length)
+                                               {
+                                                         alert("Invalid email address");
+                                                         mail.focus();
+                                                         return false;
+                                              }
+                                                else if(pswd.value=="" || pswd.value==null)
+                                                {
+                                                        alert("Please enter password");
+                                                        pswd.focus();
+                                                        return false;
+                                                }
+                                                else if(pswd.value.length<8 || pswd.value.length>12)
+                                                {
+                                                        alert("password length should be 8 to 12 chars");
+                                                        pswd.focus();
+                                                        return false;
+                                                }
+                                                 else if(cpswd.value=="" || cpswd.value==null)
+                                                  {
+                                                        alert("confirm Password is must");
+                                                        cpswd.focus();
+                                                        return false;33
+                                                  }
+                                                  else if(cpswd.value != pswd.value)
+                                                  {
+                                                         alert("confirm password must be matched with password");
+                                                         cpswd.focus();
+                                                         return false;
+                                                 }
+                                                 else if(document.getElementById("gen1").checked==false && document.getElementById("gen2").checked==false)
+                                                  {
+                                                         alert("Please select gender");
+
+                                                         return false;
+                                                 }
+                                                 else if(document.getElementById("qual").selectedIndex==false)
+                                                 {
+                                                        alert("Please select qualification");
+                                                        return false;
+                                                }
+                                                 else
+                                                 {
+                                                         var chk=document.form1.chk_box;
+                                                         for(var i=0; i<chk.length; i++)
+                                                         {
+                                                                if(chk[i].checked)
+                                                                {
+                                                                        count=count+1;
+                                                                }
+                                                         }
+
+                                                        if(count==0)
+                                                        {
+                                                                alert("please select at least 1 hobby");
+                                                                return false;
+                                                        }
+                                                 }
+                              }
+
+                                function upperCase(x)
+                                {
+                                var y=document.getElementById(x).value;
+                                document.getElementById(x).value=y.toUpperCase();
+                                }
+                </script>
+        </head>
+
+
+        <body>
+        <div style="outline:1px solid black; width:400px"> <u>Application Form: </u></br></br>
+                <form name="form1" method="post" onSubmit="return submit_val()">
+                First Name:<sup style="color:red">*</sup> <input type="text" name="fname" id="1" size=20px onkeyup="upperCase(this.id)"> </br></br>
+
+                Last Name:<sup style="color:red">*</sup> <input type="text" name="lname"  id="2" size=20px onkeyup="upperCase(this.id)"></br></br>
+
+                Email:<sup style="color:red">*</sup> <input type="text" id="email" size=30px ></br></br>
+
+                Password:<sup style="color:red">*</sup> <input type="password" name="pwd" size=20px ></br></br>
+
+                Confirm Password:<sup style="color:red">*</sup> <input type="password" name="cpwd" size=20px ></br></br>
+
+                Gender:<sup style="color:red">*</sup> <input type="radio" name="gender" id="gen1" value="male"> Male
+
+                           <input type="radio" name="gender" id="gen2" value="female"> Female</br></br>
+
+                Qualification:<sup style="color:red">*</sup> <select id="qual">
+                        <option >Select One</option>
+                        <option value="mca">MCA</option>
+                        <option value="mba">MBA</option>
+                        <option value="b.tech">B.Tech</option>
+                        <option value="b.com">B.Com</option>
+               </select> </br></br>
+
+                Hobbies:<sup style="color:red">*</sup> </br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="chk_box" id="chk1" value="1"> Dancing </br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="chk_box" id="chk2" value="2">Singing</br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="chk_box" id="chk3" value="3">Reading</br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="chk_box" id="chk4" value="4" >Chating</br></br>
+
+                 &nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Submit">
+
+                 </form>
+                 </div>
+        </body>
+</html>
+

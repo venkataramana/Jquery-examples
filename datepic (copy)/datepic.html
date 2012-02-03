@@ -1,0 +1,90 @@
+<html>
+        <head>
+          <link href="jquery-ui-css.css" rel="stylesheet" type="text/css"/>
+          <script type="text/javascript" src="jquery.js"></script>
+          <script src="jquery_ui.js"></script>
+          <script>
+            $(document).ready(function() {
+             var actives=new Array();
+             actives = ['11/01/2011','11/02/2011','11/03/2011','11/04/2011']
+                   $('.showdatepicker-startdate').datepicker({
+                        beforeShow: StartDateRange,
+                        changeMonth: true,
+                        changeYear: true,
+                        numberOfMonths: 3,
+                        minDate: '0D',
+                        hideIfNoPrevNext: true,
+                    });
+                     $('.state-default').datepicker({
+
+                     });
+                  $('.showdatepicker-enddate').datepicker({
+                      beforeShow: EndDateRange,
+                      changeMonth: true,
+                      numberOfMonths: 3,
+                      changeYear: true,
+                      onSelect: renderCalendarCallback,
+                      hideIfNoPrevNext: true
+
+                  });
+                 function StartDateRange(input) {
+                  var sdate=$('.showdatepicker-startdate').datepicker("getDate");
+                  var ndate=$('.showdatepicker-enddate').datepicker("getDate");
+                  var difference = ndate - sdate;
+                  var daysDifference = Math.ceil(difference/1000/60/60/24);
+                  for(var i=0; i < daysDifference ; i++)
+                  {
+                        var xx = new Date(parseFloat(sdate.getTime() + i * 24 * 60 * 60 * 1000));
+                        actives.push(xx);
+                   alert(actives);
+                 //return renderCalendarCallback(actives,xx)
+                  }
+
+                 return {
+                        maxDate: $('.showdatepicker-enddate').datepicker("getDate"),
+                        minDate: $('.showdatepicker-startdate').datepicker("getDate"),
+
+                    };
+                  }
+                function EndDateRange(input) {
+                    return {
+                        minDate: $('.showdatepicker-startdate').datepicker("getDate"),
+                        maxDate: $('.showdatepicker-enddate').datepicker("getDate")
+                    };
+                  }
+                function renderCalendarCallback(date) {
+                        var datestring =   new Date(parseFloat(date.getTime())); //date.getDate() +  '/' +  (date.getMonth() + 1) + '/' +  date.getFullYear();
+                        //alert(actives);
+                         //alert(date)
+
+                        if (include(actives, date)  == true) {
+                                alert("123");
+                                return [true, 'ui-state-acitve', 'test']; //For Booked Date
+                         }
+
+                }
+
+                function include(arr, obj) {
+                    for(var i=0; i<arr.length; i++) {
+                        if (arr[i].toString() == obj.toString()) return true ;
+                    }
+                }
+                });
+
+
+
+
+          </script>
+        </head>
+        <body style="font-size:60%;">
+           <div id="dates">
+                From:
+                <input type="text" id="startdate" class="showdatepicker-startdate" name="date_from" value="">
+                <img id="img1" src="file:///home/hb/Application/JQUERY_EXAMPLES/x.png" alt="No"/>
+                To:
+                <input type="text" id="enddate" class="showdatepicker-enddate" name="to_date" value="">
+                <img id="img2" src="file:///home/hb/Application/JQUERY_EXAMPLES/x.png" alt="No" style="cursor:pointer;"/>
+           </div>
+        </body>
+</html>
+

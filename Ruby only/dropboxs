@@ -1,0 +1,39 @@
+<html>
+ <head>
+ <script language="javascript">
+    var arr = new Array();
+    arr[0] = new Array("-select-");
+    arr[1] = new Array("Maharashtra","Karnataka","Andhra Pradesh","Tamil Nadu","Gujatrath");
+    arr[2] = new Array("Carinthia"," Styria");
+    arr[3] = new Array("Florida","New York","Maryland","Sanfrancisco","Lasangels");
+    arr[4] = new Array("Sidny","Victoria","Tasmania","Melborn");
+
+   function change(combo1)
+   {
+   var comboValue = combo1.value;
+   document.forms["form"].elements["combo2"].options.length=0;
+      for (var i=0;i<arr[comboValue].length;i++)
+	  {
+		var option = document.createElement("option");
+		option.setAttribute('value',i+1);
+		option.innerHTML = arr[comboValue][i];
+		document.forms["form"].elements["combo2"].appendChild(option);
+	  }
+	}
+ </script>
+ </head>
+ <body>
+ <form name="form" method="post"><select name="combo1" onchange="change(this);">
+ <option value="0">-Select-</option>
+ <option value="1">India</option>
+ <option value="2">Austria</option>
+ <option value="3">USA</option>
+ <option value="4">Australia</option>
+ </option>
+ </select> &nbsp; &nbsp;
+ <select name="combo2">
+ </select>
+ </form>
+ </body>
+ </html>
+

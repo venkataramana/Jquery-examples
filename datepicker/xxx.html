@@ -1,0 +1,24 @@
+<html>
+        <head>
+                <script language="JavaScript">
+                function timeDifference(laterdate,earlierdate)
+                {
+                    var difference = laterdate.getTime() - earlierdate.getTime();
+                    var daysDifference = Math.floor(difference/1000/60/60/24);
+                    difference -= daysDifference*1000*60*60*24
+                    var hoursDifference = Math.floor(difference/1000/60/60);
+                    difference -= hoursDifference*1000*60*60
+                    var minutesDifference = Math.floor(difference/1000/60);
+                    difference -= minutesDifference*1000*60
+                    var secondsDifference = Math.floor(difference/1000);
+                    document.write('difference = ' + daysDifference + ' day/s ' + hoursDifference + ' hour/s ' + minutesDifference + ' minute/s ' + secondsDifference + ' second/s ');
+                }
+                var laterdate = new Date(2000,0,1);     // 1st January 2000
+                var earlierdate = new Date(1998,2,13);  // 13th March 1998
+                timeDifference(laterdate,earlierdate);
+                </script>
+        </head>
+        <body>
+        </body>
+</html>
+

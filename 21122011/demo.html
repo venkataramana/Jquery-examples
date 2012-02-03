@@ -1,0 +1,46 @@
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+        <head>
+                <link type="text/css" href="datepicker.css" rel="stylesheet">
+                <link href="layout.css" type="text/css" media="screen" rel="stylesheet">
+                <title>DatePicker - jQuery plugin</title>
+                <script src="jquery.js" type="text/javascript"></script>
+                <script src="datepicker.js" type="text/javascript"></script>
+                <script src="eye.js" type="text/javascript"></script>
+                <script src="utils.js" type="text/javascript"></script>
+                <script src="layout.js?ver=1.0.2" type="text/javascript"></script>
+        </head>
+        <body>
+                <div class="tabsContent11">
+                    <div class="tab" style="display: block; text-align:left;">
+		        <p><a href="#" id="clearSelection">Clear selection</a></p>
+				<p>Flat mode, range selection, 3 calendars.</p>
+				<div id="widget">
+					<div id="widgetField">
+						<input type="text" id="dates" readonly="readonly" style="height:25px; width:200px; cursor:not-allowed;">
+					</div>
+					<div id="date3" style="height: 154px; display: none; overflow: hidden; margin-top:-12px;">
+					</div>
+				</div>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                        $("#dates").click(function(){
+                        $('#date3').slideToggle('1000').DatePicker({
+                                        flat: true,
+                                        date: [],
+                                        current: '2011-12-21',
+                                        calendars: 3,
+                                        mode: 'range',
+                                        starts: 1,
+                                        onChange : function(){$('#dates').val($('#date3').DatePickerGetDate('Y-m-d').join(' to '));}
+                                });
+
+                        });
+                        $("#clearSelection").click(function(){
+                                $('#date3').DatePickerClear();
+                                $('#dates').val('');
+                        });
+                </script>
+        </body>
+</html>
+

@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+  <title>Timeframe</title>
+  <link rel="stylesheet" href="jquery-ui-css.css" type="text/css" media="screen" charset="utf-8"/>
+  <link rel="stylesheet" href="mdp.css" type="text/css" media="screen" charset="utf-8"/>
+  <link rel="stylesheet" href="pretty.css" type="text/css" media="screen"  charset="utf-8"/>
+  <script type="text/javascript" charset="utf-8" src="datepicker.js"></script>
+  <script type="text/javascript" charset="utf-8" src="jquery_ui.js"></script>
+  <script type="text/javascript" charset="utf-8" src="multi_pik_range.js"></script>
+  <script type="text/javascript" charset="utf-8" src="jquery_ui_core.js"></script>
+ </head>
+<body>
+
+      <h4>Please select a date range below:</h4>
+
+
+ <script type="text/javascript" >
+$('#custom-date-format').multiDatesPicker({
+	dateFormat: "yy-mm-dd",
+	defaultDate:"85-02-19"
+});
+var latestMDPver = $.ui.multiDatesPicker.version;
+			var lastMDPupdate = '2011-09-04';
+
+			$(function() {
+				// Version //
+				//$('title').append(' v' + latestMDPver);
+				$('.mdp-version').text('v' + latestMDPver)
+				$('#mdp-title').attr('title', 'last update on: ' + lastMDPupdate);
+
+				// Documentation //
+				$('i:contains(type)').attr('title', '[Optional] accepted values are: "allowed" [default]; "disabled".');
+				$('i:contains(format)').attr('title', '[Optional] accepted values are: "string" [default]; "object".');
+				$('#how-to h4').each(function () {
+					var a = $(this).closest('li').attr('id');
+					$(this).wrap('<'+'a href="#'+a+'"></'+'a>');
+				});
+
+				// Run Demos
+				$('.demo .code').each(function() {
+					eval($(this).html());
+				});
+			});
+</script>
+</body>
+</html>
+

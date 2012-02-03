@@ -1,0 +1,492 @@
+<html>
+        <head>
+                <title> MyMenu </title>
+                <style type="text/css">
+                        .menu {background:#1D4D7C; color:yellow; list-style-type:none; position:absolute;
+                          width: 200px; padding-left:5px; display:block;}
+                        .submenu {cursor:pointer; letter-spacing:1px;}
+                        .grncss {background:green; color:#F7F7F2;}
+                        .signclass {color:blue; width:300px; height:25px; border-radius:5px; padding-left:5px;border-width:3px;border-left-style:inset;}
+                        .onfocus {background:#F9F9F2; box-shadow : 0 0 3px blue;}
+                        .onblur {background:#91DDF7; box-shadow : 0 0 3px red; color:#3D1DAF;}
+                        .btn {background:#91DDF7; color:#3D1DAF; border-radius:5px; width:100px; font-size:18px; font-family:Impact; letter-spacing:1px;}
+                        .td_main_cls {cursor:pointer;background:#0ED65B; color:#F7F7F2; height:30px; width:150px; font-size:20px; padding-left:10px;}
+                        .lisub {display:block; position:absolute; width:80px; margin-top:-20px; outline:1px solid #F7F7F2; font-size:13px;}
+                </style>
+                <script type="text/javascript" src="jquery.js"></script>
+                <script src="jquery_easing.js" type="text/javascript"></script>
+                <script type="text/javascript">
+                        $(document).ready(function(){
+                                 $("ul li:even").css("background","#07657C");
+                                 $("ul li:even").mouseover(function(){
+                                        $(this).css({"background":"#F7F7F2", "color":"#1D4D7C"});
+                                 });
+                                 $("ul li:even").mouseout(function(){
+                                        $(this).css({"background":"#07657C", "color":"yellow"});
+                                 });
+                                 $("ul li:odd").mouseover(function(){
+                                        $(this).css({"background":"#F7F7F2", "color":"#1D4D7C"});
+                                 });
+                                 $("ul li:odd").mouseout(function(){
+                                        $(this).css({"background":"#1D4D7C", "color":"yellow"});
+                                 });
+                                 $("dl dt:even").css({"background":"#E8C976", "color":"black","font-family":"Verdana"});
+                                 $("dl dt:odd").css({"background":"#CAE560", "color":"black","font-family":"Verdana"});
+                                $("td.td_main_cls").mouseover(function(){
+                                        $(this).css({"background":"yellow", "color":"#1D4D7C"});
+                                });
+                                $("td.td_main_cls").mouseout(function(){
+                                        $(this).css({"background":"#0ED65B", "color":"#F7F7F2", "text-decoration":"none"});
+                                });
+                                $("td#home").click(function(){
+                                        $(this).css({"background":"yellow", "color":"#1D4D7C"});
+                                        $("td#contact").css({"background":"#0ED65B", "color":"#F7F7F2"});
+                                        $("td#service").css({"background":"#0ED65B", "color":"#F7F7F2"});
+                                        $("td#faq").css({"background":"#0ED65B", "color":"#F7F7F2"});
+                                        $("ul#homemenu").css("margin-top","-3px");
+                                        $("ul#homemenu").slideToggle(100).addClass("menu");
+                                        $("ul#contactmenu").css("display", "none");
+                                        $("ul#servicemenu").css("display", "none");
+                                        $("ul#faqmenu").css("display", "none");
+                                });
+                                $("td#contact").click(function(){
+                                        $(this).css({"background":"yellow", "color":"#1D4D7C"});
+                                        $("td#home").css({"background":"#0ED65B", "color":"#F7F7F2"});
+                                        $("td#service").css({"background":"#0ED65B", "color":"#F7F7F2"});
+                                        $("td#faq").css({"background":"#0ED65B", "color":"#F7F7F2"});
+                                        $("ul#contactmenu").css("margin-top","-3px");
+                                        $("ul#contactmenu").slideToggle(100).addClass("menu");
+                                        $("ul#homemenu").hide();
+                                        $("ul#servicemenu").hide();
+                                        $("ul#faqmenu").hide();
+                                        $("#li1menu").hide();
+                                        $("#li3menu").hide();
+                                        $("#li2menu").hide();
+                                        $("#li4menu").hide();
+                                });
+                                $("td#service").click(function(){
+                                        $(this).css({"background":"yellow", "color":"#1D4D7C"});
+                                        $("td#contact").css({"background":"#0ED65B", "color":"#F7F7F2"});
+                                        $("td#home").css({"background":"#0ED65B", "color":"#F7F7F2"});
+                                        $("td#faq").css({"background":"#0ED65B", "color":"#F7F7F2"});
+                                        $("ul#servicemenu").css("margin-top","-3px");
+                                        $("ul#servicemenu").slideToggle(100).addClass("menu");
+                                        $("ul#homemenu").css("display", "none");
+                                        $("ul#contactmenu").css("display", "none");
+                                        $("ul#faqmenu").css("display", "none");
+                                        $("#li1menu").hide();
+                                        $("#li3menu").hide();
+                                        $("#li2menu").hide();
+                                        $("#li4menu").hide();
+                                        $("#s1menu").hide();
+                                        $("#s2menu").hide();
+                                });
+                                $("td#faq").click(function(){
+                                        $(this).css({"background":"yellow", "color":"#1D4D7C"});
+                                        $("td#contact").css({"background":"#0ED65B", "color":"#F7F7F2"});
+                                        $("td#service").css({"background":"#0ED65B", "color":"#F7F7F2"});
+                                        $("td#home").css({"background":"#0ED65B", "color":"#F7F7F2"});
+                                        $("ul#faqmenu").css("margin-top","-3px");
+                                        $("ul#faqmenu").slideToggle(100).addClass("menu");
+                                        $("ul#homemenu").css("display", "none");
+                                        $("ul#servicemenu").css("display", "none");
+                                        $("ul#contactmenu").css("display", "none");
+                                        $("#li1menu").hide();
+                                        $("#li3menu").hide();
+                                        $("#li2menu").hide();
+                                        $("#li4menu").hide();
+                                });
+                                $("li span#1").click(function(){
+                                      $("#li1menu").slideToggle(100).css({"font-size":"12px", "padding-left":"5px"});
+                                });
+                                $("li span#2").click(function(){
+                                      $("#li2menu").slideToggle(100).css({"font-size":"12px", "padding-left":"5px"});
+                                });
+                                $("li span#3").click(function(){
+                                      $("#li3menu").slideToggle(100).css({"font-size":"12px", "padding-left":"5px"});
+                                });
+                                $("li span#4").click(function(){
+                                      $("#li4menu").slideToggle(100).css({"font-size":"12px", "padding-left":"5px"});
+                                });
+
+                                $("li span#c1").click(function(){
+                                      $("#c1menu").slideToggle(100).css({"font-size":"12px", "padding-left":"5px"});
+                                });
+                                $("li span#c2").click(function(){
+                                      $("#c2menu").slideToggle(100).css({"font-size":"12px", "padding-left":"5px"});
+                                });
+                                $("li span#c3").click(function(){
+                                      $("#c3menu").slideToggle(100).css({"font-size":"12px", "padding-left":"5px"});
+                                });
+                                $("li#s1").mouseover(function(){
+                                      $("#s2menu").hide().css({"position":"relative", "left":"0px"});
+                                      $("#s3menu").hide().css({"position":"relative", "left":"0px"});
+                                      $("#s4menu").hide().css({"position":"relative", "left":"0px"});
+                                      $("#s1menu").css({"display":"block", "position":"absolute", "width":"150px", "margin-top":"-20px", "outline":"1px solid #F7F7F2", "font-size":"13px", "padding-left":"5px"});
+                                      $("#s1menu").animate({left:"205px"},"slow");
+                                });
+                                $("li#s2").mouseover(function(){
+                                      $("#s1menu").hide().css({"position":"relative", "left":"0px"});
+                                      $("#s3menu").hide().css({"position":"relative", "left":"0px"});
+                                      $("#s4menu").hide().css({"position":"relative", "left":"0px"});
+                                      $("#s2menu").css({"display":"block", "position":"absolute", "width":"150px", "margin-top":"-20px", "outline":"1px solid #F7F7F2", "font-size":"13px", "padding-left":"5px"});
+                                      $("#s2menu").animate({left:"205px"},"slow");
+                                });
+                                $("li#s3").mouseover(function(){
+                                      $("#s2menu").hide().css({"position":"relative", "left":"0px"});
+                                      $("#s1menu").hide().css({"position":"relative", "left":"0px"});
+                                      $("#s4menu").hide().css({"position":"relative", "left":"0px"});
+                                      $("#s3menu").css({"display":"block", "position":"absolute", "width":"150px", "margin-top":"-20px", "outline":"1px solid #F7F7F2", "font-size":"13px", "padding-left":"5px"});
+                                      $("#s3menu").animate({left:"205px"},"slow");
+                                });
+                                $("li#s4").mouseover(function(){
+                                      $("#s1menu").hide().css({"position":"relative", "left":"0px"});
+                                      $("#s3menu").hide().css({"position":"relative", "left":"0px"});
+                                      $("#s2menu").hide().css({"position":"relative", "left":"0px"});
+                                      $("#s4menu").css({"display":"block", "position":"absolute", "width":"150px", "margin-top":"-20px", "outline":"1px solid #F7F7F2", "font-size":"13px", "padding-left":"5px"});
+                                      $("#s4menu").animate({left:"205px"},"slow");
+                                });
+                                $("li#s1").mouseout(function(){
+                                        $("#s1menu").hide().css({"position":"relative", "margin-left":"0px"});
+                                });
+                                $("li#s2").mouseout(function(){
+                                        $("#s2menu").hide().css({"position":"relative", "margin-left":"0px"});
+                                });
+                                $("li#s3").mouseout(function(){
+                                        $("#s3menu").hide().css({"position":"relative", "margin-left":"0px"});
+                                });
+                                $("li#s4").mouseout(function(){
+                                        $("#s4menu").hide().css({"position":"relative", "margin-left":"0px"});
+                                });
+                                $("li").mouseout(function(){
+                                        $("#s1menu").hide().css({"position":"relative", "margin-left":"0px"});
+                                        $("#s2menu").hide().css({"position":"relative", "margin-left":"0px"});
+                                        $("#s3menu").hide().css({"position":"relative", "margin-left":"0px"});
+                                        $("#s4menu").hide().css({"position":"relative", "margin-left":"0px"});
+                                        $("#f1menu").hide().css({"position":"relative", "margin-left":"0px"});
+                                        $("#f2menu").hide().css({"position":"relative", "margin-left":"0px"});
+                                        $("#f3menu").hide().css({"position":"relative", "margin-left":"0px"});
+                                        $("#f4menu").hide().css({"position":"relative", "margin-left":"0px"});
+                                });
+                                $("li#f1").mouseover(function(){
+                                      $("#f2menu").hide();
+                                      $("#f3menu").hide();
+                                      $("#f4menu").hide();
+                                      $("#f1menu").css({"display":"block", "position":"absolute", "width":"150px", "margin-top":"-20px", "outline":"1px solid #F7F7F2", "font-size":"13px", "padding-left":"5px"});
+                                      $("#f1menu").animate({left:"205px"},"slow");
+                                });
+                                $("li#f2").mouseover(function(){
+                                      $("#f1menu").hide();
+                                      $("#f3menu").hide();
+                                      $("#f4menu").hide();
+                                      $("#f2menu").css({"display":"block", "position":"absolute", "width":"150px", "margin-top":"-20px", "outline":"1px solid #F7F7F2", "font-size":"13px", "padding-left":"5px"});
+                                      $("#f2menu").animate({left:"205px"},"slow");
+                                });
+                                $("li#f3").mouseover(function(){
+                                      $("#f2menu").hide();
+                                      $("#f1menu").hide();
+                                      $("#f4menu").hide();
+                                      $("#f3menu").css({"display":"block", "position":"absolute", "width":"150px", "margin-top":"-20px", "outline":"1px solid #F7F7F2", "font-size":"13px", "padding-left":"5px"});
+                                      $("#f3menu").animate({left:"205px"},"slow");
+                                });
+                                $("li#f4").mouseover(function(){
+                                      $("#f1menu").hide();
+                                      $("#f3menu").hide();
+                                      $("#f2menu").hide();
+                                      $("#f4menu").css({"display":"block", "position":"absolute", "width":"150px", "margin-top":"-20px", "outline":"1px solid #F7F7F2", "font-size":"13px", "padding-left":"5px"});
+                                      $("#f4menu").animate({left:"205px"},"slow");
+                                });
+                                $("#s1sub").click(function(){
+                                      //$("#s1_sub_menu").css({"display":"block", "position":"absolute", "width":"150px", "margin-top":"-15px", "outline":"1px solid #F7F7F2", "font-size":"13px", "padding-left":"5px"});
+                                      //$("#s1_sub_menu").animate({left:"150px"},"slow");
+                                });
+
+                                $("#uname").focus(function(){
+                                        $(this).val('');
+                                });
+                                $("#uname").blur(function(){
+                                        $(this).val('Enter Value');
+                                });
+
+                        });
+                        function chstyle(x, y,z)
+                        {
+                                if(x=="uname"){
+                                        $("#"+z).addClass("onfocus");
+                                        $("#pwd").removeClass("onfocus");
+                                }
+                                if(x=="pwd"){
+                                        $("#"+z).addClass("onfocus");
+                                        $("#uname").removeClass("onfocus");
+                                }
+                        }
+                        function chk_valid(x,y,z)
+                        {
+                                if(y=="")
+                                {
+                                    $("#"+z).addClass("onblur");
+                                    $("#err_"+z).fadeIn("slow");
+                                }
+                                else if(y.length < 5)
+                                {
+                                    $("#"+z).addClass("onblur");
+                                    $("#err_"+z).hide();
+                                    $("#len_"+z).fadeIn("slow");
+                                }
+                                else
+                                {
+                                    $("#"+z).removeClass("onblur");
+                                    $("#"+z).removeClass("onfocus");
+                                    $("#err_"+z).fadeOut("slow");
+                                    $("#len_"+z).fadeOut("slow");
+                                }
+                        }
+
+                </script>
+        </head>
+        <body bgcolor="#EAE8E8">
+               <table align="center" width="1056px" height="120px"
+                 style="background:url('file:///home/hb/Application/JQUERY_EXAMPLES/header_bg.gif')  repeat-x scroll 0 0; margin-top:-8px;">
+                        <tr>
+                                <td>
+                                 </td>
+                        </tr>
+                </table>
+                <table id="tabs" align="center" width="1060px" style="margin-top:-2px;font-family:Impact; letter-spacing:1px;">
+                        <tr id="mainrow">
+                                <td id="home"  class="td_main_cls"> Home </td>
+                                <td id="contact" class="td_main_cls">Contact Us</td>
+                                <td id="service" class="td_main_cls">Services</td>
+                                <td id="faq" class="td_main_cls">FAQ'z </td>
+                                <td  class="td_main_cls"> Our clients </td>
+                                <td  class="td_main_cls"> Enquiries </td>
+
+                        </tr>
+                         <tr id="menurow">
+                                <td id="menutd">
+                                        <ul id="homemenu" style="display:none;">
+                                                <li class="1"><span id="1" style="cursor:pointer">home 1 </span>
+                                                        <dl id="li1menu"  style="display:none; background:#F7F7F2; color:#285766;">
+                                                                <dt class="submenu"><a href="#">kvramana1</a></dt>
+                                                                <dt class="submenu">kvramana2</dt>
+                                                                <dt class="submenu">kvramana3</dt>
+                                                                <dt class="submenu">kvramana4</dt>
+                                                                <dt class="submenu">kvramana5</dt>
+                                                                <dt class="submenu">kvramana6</dt>
+                                                        <dl>
+                                                </li>
+                                                <li class="1"><span id="2" style="cursor:pointer">home 2</span>
+                                                        <dl id="li2menu"  style="display:none; background:#F7F7F2; color:#285766;">
+                                                                <dt class="submenu">hardik1</dt>
+                                                                <dt class="submenu">hardik2</dt>
+                                                                <dt class="submenu">hardik3</dt>
+                                                                <dt class="submenu">kvramana1</dt>
+                                                                <dt class="submenu">kvramana4</dt>
+                                                                <dt class="submenu">kvramana3</dt>
+                                                        <dl>
+                                                </li>
+                                                <li class="1"><span id="3" style="cursor:pointer">home 3</span>
+                                                        <dl id="li3menu"  style="display:none; background:#F7F7F2; color:#285766;">
+                                                                <dt class="submenu">arpit2</dt>
+                                                                <dt class="submenu">arpit5</dt>
+                                                                <dt class="submenu">arpit1</dt>
+                                                                <dt class="submenu">kvramana5</dt>
+                                                                <dt class="submenu">kvramana3</dt>
+                                                                <dt class="submenu">kvramana2</dt>
+                                                        <dl>
+                                                </li>
+                                                <li class="1"><span id="4" style="cursor:pointer">home 4</span>
+                                                        <dl id="li4menu"  style="display:none; background:#F7F7F2; color:#285766;">
+                                                                <dt class="submenu">natwar3</dt>
+                                                                <dt class="submenu">natwar5</dt>
+                                                                <dt class="submenu">natwar7</dt>
+                                                                <dt class="submenu">kvramana6</dt>
+                                                                <dt class="submenu">kvramana3</dt>
+                                                                <dt class="submenu">kvramana4</dt>
+                                                        <dl>
+                                                </li>
+                                                <li class="1" style="cursor:pointer"><span id="5">home 5</span></li>
+                                                <li class="1" style="cursor:pointer"><span id="6">home 6</span></li>
+
+                                        </ul>
+                                </td>
+                                <td>
+                                        <ul id="contactmenu" style="display:none;">
+                                                <li><span id="c1" style="cursor:pointer">contact 1</span>
+                                                        <dl id="c1menu"  style="display:none; background:#F7F7F2; color:#285766;">
+                                                                <dt class="submenu">govinda1</dt>
+                                                                <dt class="submenu">govinda3</dt>
+                                                                <dt class="submenu">govinda2</dt>
+                                                                <dt class="submenu">govinda4</dt>
+                                                                <dt class="submenu">govinda5</dt>
+                                                                <dt class="submenu">govinda6</dt>
+                                                        <dl>
+                                                </li>
+                                                <li><span id="c2" style="cursor:pointer">contact 2</span>
+                                                        <dl id="c2menu"  style="display:none; background:#F7F7F2; color:#285766;">
+                                                                <dt class="submenu">tejesh1</dt>
+                                                                <dt class="submenu">tejesh2</dt>
+                                                                <dt class="submenu">tejesh3</dt>
+                                                                <dt class="submenu">tejesh4</dt>
+                                                                <dt class="submenu">tejesh5</dt>
+                                                                <dt class="submenu">tejesh6</dt>
+                                                        <dl>
+                                                </li>
+                                                <li><span id="c3" style="cursor:pointer">contact 3</span>
+                                                        <dl id="c3menu"  style="display:none; background:#F7F7F2; color:#285766;">
+                                                                <dt class="submenu">ramesh1</dt>
+                                                                <dt class="submenu">ramesh2</dt>
+                                                                <dt class="submenu">ramesh3</dt>
+                                                                <dt class="submenu">ramesh4</dt>
+                                                                <dt class="submenu">ramesh5</dt>
+                                                                <dt class="submenu">ramesh6</dt>
+                                                        <dl>
+                                                </li>
+                                                <li style="cursor:pointer">contact 4</li>
+                                                <li style="cursor:pointer">contact 5</li>
+                                                <li style="cursor:pointer">contact 6</li>
+                                        </ul>
+                                </td>
+                                <td>
+                                        <ul id="servicemenu" style="display:none;">
+                                                <li id="s1" style="cursor:pointer">services 1
+                                                 <dl id="s1menu"  style="display:none; background:#F7F7F2; color:#285766;">
+                                                        <dt id="s1sub" class="submenu">service 1.1
+                                                              <dl id="s1_sub_menu"  style="display:none; background:#F7F7F2; color:#285766;">
+                                                                <dt class="submenu">service 1.2</dt>
+                                                                <dt class="submenu">service 1.3</dt>
+                                                                <dt class="submenu">service 1.4</dt>
+                                                                <dt class="submenu">service 1.5</dt>
+                                                              <dl>
+                                                        </dt>
+                                                        <dt class="submenu">service 1.2</dt>
+                                                        <dt class="submenu">service 1.3</dt>
+                                                        <dt class="submenu">service 1.4</dt>
+                                                        <dt class="submenu">service 1.5</dt>
+                                                        <dt class="submenu">service 1.6</dt>
+                                                        <dt class="submenu">service 1.7</dt>
+                                                <dl>
+                                                </li>
+                                                <li id="s2" style="cursor:pointer">services 2
+                                                <dl id="s2menu"  style="display:none; background:#F7F7F2; color:#285766;">
+                                                        <dt class="submenu">service 2.1</dt>
+                                                        <dt class="submenu">service 2.2</dt>
+                                                        <dt class="submenu">service 2.3</dt>
+                                                        <dt class="submenu">service 2.4</dt>
+                                                        <dt class="submenu">service 2.5</dt>
+                                                        <dt class="submenu">service 2.6</dt>
+                                                        <dt class="submenu">service 2.7</dt>
+                                                <dl>
+                                                </li>
+                                                <li id="s3" style="cursor:pointer">services 3
+                                                <dl id="s3menu"  style="display:none; background:#F7F7F2; color:#285766;">
+                                                        <dt class="submenu">service 3.1</dt>
+                                                        <dt class="submenu">service 3.2</dt>
+                                                        <dt class="submenu">service 3.3</dt>
+                                                        <dt class="submenu">service 3.4</dt>
+                                                        <dt class="submenu">service 3.5</dt>
+                                                        <dt class="submenu">service 3.6</dt>
+                                                        <dt class="submenu">service 3.7</dt>
+                                                <dl>
+                                                </li>
+                                                <li id="s4" style="cursor:pointer">services 4
+                                                <dl id="s4menu"  style="display:none; background:#F7F7F2; color:#285766;">
+                                                        <dt class="submenu">service 4.1</dt>
+                                                        <dt class="submenu">service 4.2</dt>
+                                                        <dt class="submenu">service 4.3</dt>
+                                                        <dt class="submenu">service 4.4</dt>
+                                                        <dt class="submenu">service 4.5</dt>
+                                                        <dt class="submenu">service 4.6</dt>
+                                                        <dt class="submenu">service 4.7</dt>
+                                                <dl>
+                                                </li>
+                                                <li class="submenu" id="service_sub4" onclick="submenu(this,this.id)">services 5</li>
+                                                <li class="submenu" id="service_sub5" onclick="submenu(this,this.id)">services 6</li>
+                                        </ul>
+                                </td>
+                                <td>
+                                        <ul id="faqmenu" style="display:none;">
+                                                <li id="f1" style="cursor:pointer">faq 1
+                                                 <dl id="f1menu"  style="display:none; background:#F7F7F2; color:#285766;">
+                                                        <dt id="f1sub" class="submenu">faq 1.1 </dt>
+                                                        <dt class="submenu">faq 1.2</dt>
+                                                        <dt class="submenu">faq 1.3</dt>
+                                                        <dt class="submenu">faq 1.4</dt>
+                                                        <dt class="submenu">faq 1.5</dt>
+                                                        <dt class="submenu">faq 1.6</dt>
+                                                        <dt class="submenu">faq 1.7</dt>
+                                                <dl>
+                                                </li>
+                                                <li id="f2" style="cursor:pointer">faq 2
+                                                <dl id="f2menu"  style="display:none; background:#F7F7F2; color:#285766;">
+                                                        <dt class="submenu">faq 2.1</dt>
+                                                        <dt class="submenu">faq 2.2</dt>
+                                                        <dt class="submenu">faq 2.3</dt>
+                                                        <dt class="submenu">faq 2.4</dt>
+                                                        <dt class="submenu">faq 2.5</dt>
+                                                        <dt class="submenu">faq 2.6</dt>
+                                                        <dt class="submenu">faq 2.7</dt>
+                                                <dl>
+                                                </li>
+                                                <li id="f3" style="cursor:pointer">faq 3
+                                                <dl id="f3menu"  style="display:none; background:#F7F7F2; color:#285766;">
+                                                        <dt class="submenu">faq 3.1</dt>
+                                                        <dt class="submenu">faq 3.2</dt>
+                                                        <dt class="submenu">faq 3.3</dt>
+                                                        <dt class="submenu">faq 3.4</dt>
+                                                        <dt class="submenu">faq 3.5</dt>
+                                                        <dt class="submenu">faq 3.6</dt>
+                                                        <dt class="submenu">faq 3.7</dt>
+                                                <dl>
+                                                </li>
+                                                <li id="f4" style="cursor:pointer">faq 4
+                                                <dl id="f4menu"  style="display:none; background:#F7F7F2; color:#285766;">
+                                                        <dt class="submenu">faq 4.1</dt>
+                                                        <dt class="submenu">faq 4.2</dt>
+                                                        <dt class="submenu">faq 4.3</dt>
+                                                        <dt class="submenu">faq 4.4</dt>
+                                                        <dt class="submenu">faq 4.5</dt>
+                                                        <dt class="submenu">faq 4.6</dt>
+                                                        <dt class="submenu">faq 4.7</dt>
+                                                <dl>
+                                                </li>
+                                                <li>faq 5</li>
+                                                <li>faq 6</li>
+                                        </ul>
+                                </td>
+                         </tr>
+                </table>
+                <table id="midtab" width="1056px" align="center" style="margin-top:-8px; background:#CE7575;">
+                        <tr>
+                                <td colspan="4" style="height:450px; background:lightpink; border-radius:50px;">
+                                       <div style="padding-left:373px; color:#771360; font-size:20px;">
+                                               <b> Sign in </b>
+                                       </div>
+                                       <div style="padding-left:373px;">
+                                                <p style="color:#771360; font-size:13px;">user name </p>
+                                                <input type="text" name="name" class="signclass" id="uname" value="enter username" onfocus="return chstyle('uname',this,this.id)"
+                                                onblur="return chk_valid('uname', this.value, this.id)">
+                                                <span id="err_uname" style="display:none; font-size:12px;color:#3D1DAF; "> can't be blank </span>
+                                                <span id="len_uname" style="display:none; font-size:12px;color:#3D1DAF; "> minimum 5 characters </span>
+                                                  <br />
+                                                <p style="color:#771360; font-size:13px;">password</p>
+                                                <input type="password" name="pwd"  class="signclass" id="pwd" value="Enter Password" onfocus="return chstyle('pwd',this,this.id)"
+                                                 onblur="return chk_valid('pwd', this.value, this.id)">
+                                                 <span id="err_pwd" style="display:none; font-size:12px;color:#3D1DAF;"> can't be blank </span>
+                                                 <span id="len_pwd" style="display:none; font-size:12px;color:#3D1DAF; "> minimum 5 characters </span>
+                                                  <br /><br />
+                                                <input type="submit" value="Sign in" method="post" class="btn">
+                                       </div>
+                                </td>
+                        </tr>
+                </table>
+                <table id="bottab" width="1060px" align="center" style="margin-top:-2px;">
+                        <tr>
+                                <td colspan="4" style="height:80px; background:#91A2E3; padding-left:10px;">
+                                        <img alt="" src="file:///home/hb/Application/JQUERY_EXAMPLES/footer-logo.png">
+                                </td>
+                        </tr>
+                </table>
+        </body>
+</html>
+

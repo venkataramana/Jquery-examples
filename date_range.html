@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+        <head>
+          <link href="jquery-ui-css.css" rel="stylesheet" type="text/css"/>
+          <script type="text/javascript" src="jquery.js"></script>
+          <script src="jquery_ui.js"></script>
+          <script>
+	$(function() {
+		var dates = $( "#from, #to" ).datepicker({
+			defaultDate: "+1w",
+			changeMonth: true,
+			numberOfMonths: 2,
+			onSelect: function( selectedDate ) {
+			var option = this.id == "from" ? "minDate" : "maxDate",
+				instance = $( this ).data( "datepicker" ),
+				date = $.datepicker.parseDate(
+					instance.settings.dateFormat ||
+					$.datepicker._defaults.dateFormat,
+					selectedDate, instance.settings );
+			dates.not( this ).datepicker( "option", option, date );
+			}
+		});
+	});
+	</script>
+        </head>
+           <body  style="font-size:62.5%;">
+                 <div class="demo">
+                <label for="from">From</label>
+                <input type="text" id="from" name="from"/>
+                <label for="to">to</label>
+                <input type="text" id="to" name="to"/>
+                </div>
+        </body>
+</html>
+

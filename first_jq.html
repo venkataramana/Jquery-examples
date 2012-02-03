@@ -1,0 +1,62 @@
+<html>
+        <head>
+                <title>This is my first jquery example</title>
+                <script type="text/javascript" src="jquery.js"></script>
+                <script type="text/javascript">
+                        $(document).ready(function(){
+                                $(document).mousemove(function(e){
+                                        $("span").text("X is at:" +e.pageX+ " " + "Y is at:" +e.pageY);
+                                        $("span").css("color","green")
+                                });
+                                $("p#sh").hide("slow");
+                                $("button").click(function(){
+                                        //$("p").css({"background-color":"yellow", "color":"red"});
+                                        $("p#hd").fadeTo("slow","0.3");
+                                        $("p#hd").html("Hello faddded?");
+                                        $("p#sh").show();
+                                        $("p#anm").animate({'height': '+=15px'},1000, 'swing');
+                                        $("p#anm").animate({width:150},"slow");
+                                        $("p#anm").animate({height:180}, "slow");
+                                        $("p#anm").animate({width:180},"slow");
+                                        $("p#anm").animate({width:950},"speed");
+                                        $("p#anm").animate({height:100}, "speed");
+                                        $("p#anm").animate({width:100},"slow");
+                                });
+                                $(".bold").click(function(){
+                                        $("#tab").slideDown("slow");
+                                        $(".bold").hide("slow");
+                                        $("#bold").show();
+                                });
+                                $("#bold").click(function(){
+                                        $("#tab").slideUp("slow");
+                                        $(".bold").show();
+                                        $("#bold").hide();
+                                });
+                                $("p#sh").mouseover(function(){
+                                        $(this).fadeTo("slow", "0.3");
+                                },function(){
+                                        $("p#sh").hide("slow").slideDown("slow").fadeOut("slow").fadeIn("slow");
+                                        //$("p#sh").next().fadeIn("slow");
+                                });
+                        });
+                </script>
+        </head>
+        <body>
+                <p style="background:yellow;height:30px;width:400px;"> This is my first jquery example </p>
+                <p id="hd"style="background:red;height:100px;width:100px;"> This would be faded </p>
+                <p id="sh"style="background:green;height:40px;width:200px; color:white;"> New would be come </p>
+                <p id="anm"style="background:orange;height:100px;width:100px; color:green;"> Animation </p>
+                <p id="msmove" style="color:red; text-align:center;"> Mouse position: <span> </span></p>
+                <b class="bold" style="background:pink; cursor:pointer;"> <u> slide </u></b>
+                <div id="tab" style="background:pink;width:300px; display:none;">
+                        <b id="bold" style="background:pink; cursor:pointer;"> <u> slide </u></b>
+                        <p>Because time is valuable, we deliver quick and easy learning.</p>
+                        <p>At W3Schools, you can study everything you need to learn, in an accessible and handy format.</p>
+                        <p>Because time is valuable, we deliver quick and easy learning.</p>
+                        <p>At W3Schools, you can study everything you need to learn, in an accessible and handy format.</p>
+                </div>
+                <br />
+                <button> Clk</button>
+        </body>
+</html>
+

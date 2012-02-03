@@ -1,0 +1,92 @@
+<html>
+        <head>
+                <style type="text/css">
+                         li{height:25px;}
+                </style>
+                <script type="text/javascript">
+                        var curry, prevy, flag=false, inc=0;
+                        function scrollStart(e)
+                        {
+                                curry=e.clientY;
+                                flag=true;
+                        }
+                        function scrollOut(e)
+                        {
+                               flag=false;
+                        }
+                        function scrolling(e)
+                        {
+                               if(flag)
+                               {
+                                       prevy=curry;
+                                       curry=e.clientY;
+                                       if(prevy > curry)
+                                       {
+                                          if(inc > -325){
+                                               inc -=15;
+                                               document.getElementById("scrl").style.top=inc;
+                                          }
+                                       }
+                                       if(prevy <= curry)
+                                       {
+                                          if(inc < 0){
+                                                   inc +=15;
+                                                  document.getElementById("scrl").style.top=inc;
+                                          }
+                                       }
+                               }
+                        }
+                        function scrollUp(e)
+                        {
+                          if(inc > -325){
+                               inc -=15;
+                               document.getElementById("scrl").style.top=inc;
+                          }
+                        }
+                        function scrollDown(e)
+                        {
+                          if(inc < 0){
+                                   inc +=15;
+                                  document.getElementById("scrl").style.top=inc;
+                          }
+                        }
+                </script>
+        </head>
+        <body >
+                <div style="background:yellow;height:200px; width:200px; border:1px solid red; position:absolute; top:20px; overflow:hidden; left:200px;"
+                 onmouseWheel="wheeling(event)">
+                        <ul id="scrl" valign="top" style="position:absolute; top:0px; ">
+                                <li> option 1 </li>
+                                <li> option 2 </li>
+                                <li> option 3 </li>
+                                <li> option 4 </li>
+                                <li> option 5 </li>
+                                <li> option 6 </li>
+                                <li> option 7 </li>
+                                <li> option 8 </li>
+                                <li> option 9 </li>
+                                <li> option 10 </li>
+                                <li> option 11 </li>
+                                <li> option 12 </li>
+                                <li> option 13 </li>
+                                <li> option 14 </li>
+                                <li> option 15 </li>
+                                <li> option 16 </li>
+                                <li> option 17 </li>
+                                <li> option 18 </li>
+                                <li> option 19 </li>
+                                <li> option 20 </li>
+                        </ul>
+                </div>
+                <div style="background:lightgreen; height:200px; width:10px; border:1px solid green; position:absolute; top:20px; left:405px;">
+                        <div style="background:lightgreen; height:10px; width:10px;cursor:pointer;"  onmouseDown="scrollDown(event)">
+                        </div>
+                        <div  style="background:red; height:180px; width:10px;cursor:pointer;"
+                                        onmouseDown="scrollStart(event)" onmouseUp="scrollOut(event)" onmouseMove="scrolling(event)">
+                        </div>
+                        <div style="background:lightgreen; height:10px; width:10px;cursor:pointer; "  onmouseDown="scrollUp(event)">
+                        </div>
+                </div>
+        </body>
+</html>
+

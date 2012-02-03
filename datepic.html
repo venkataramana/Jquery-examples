@@ -1,0 +1,49 @@
+<html>
+        <head>
+          <link href="jquery-ui-css.css" rel="stylesheet" type="text/css"/>
+          <script type="text/javascript" src="jquery.js"></script>
+          <script src="jquery_ui.js"></script>
+          <script>
+            $(document).ready(function() {
+                   $('.showdatepicker-startdate').datepicker({
+                        beforeShow: StartDateRange,
+                        changeMonth: true,
+                        changeYear: true,
+                        numberOfMonths: 3,
+                        minDate: '0D',
+                        hideIfNoPrevNext: true
+                    });
+                  $('.showdatepicker-enddate').datepicker({
+                      beforeShow: EndDateRange,
+                      changeMonth: true,
+                      numberOfMonths: 3,
+                      changeYear: true,
+                      hideIfNoPrevNext: true
+                  });
+                function StartDateRange(input) {
+                    return {
+                        maxDate: $('.showdatepicker-enddate').datepicker("getDate"),
+                        minDate: $('.showdatepicker-startdate').datepicker("getDate")
+                    };
+                  }
+                function EndDateRange(input) {
+                    return {
+                        minDate: $('.showdatepicker-startdate').datepicker("getDate"),
+                        maxDate: $('.showdatepicker-enddate').datepicker("getDate")
+                    };
+                  }
+                });
+          </script>
+        </head>
+           <body style="font-size:60%;">
+                   <div id="dates">
+                        From:
+                        <input type="text" id="startdate" class="showdatepicker-startdate" name="date_from" value="">
+                        <img id="img1" src="file:///home/hb/Application/JQUERY_EXAMPLES/x.png" alt="No"/>
+                        To:
+                        <input type="text" id="enddate" class="showdatepicker-enddate" name="to_date" value="">
+                        <img id="img2" src="file:///home/hb/Application/JQUERY_EXAMPLES/x.png" alt="No" style="cursor:pointer;"/>
+                   </div>
+        </body>
+</html>
+

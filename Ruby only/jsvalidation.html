@@ -1,0 +1,162 @@
+<html>
+        <head>
+                <script type="text/javascript">
+                              function submit_val()
+                              {
+                              var fname=document.forms["form1"]["fname"].value
+                               var lname=document.forms["form1"]["lname"].value
+                               var mail=document.forms["form1"]["email"].value
+                               var pswd=document.forms["form1"]["pwd"].value
+                                var gender=document.forms["form1"]["gender"].value
+                                 var qual=document.forms["form1"]["qual"].value
+                               if(fname=="" || fname==null || lname=="" || lname==null || mail=="" || mail==null || pswd=="" || pswd==null)
+                               alert("Enter all fields");
+                               return false;
+                              }
+
+                              function first_name()
+                               {
+                                        var fname=document.forms["form1"]["fname"].value
+                                        var regx=/\d/
+
+                                        if(fname=="" || fname==null)
+                                        {
+                                        alert("First Name should not be left blank");
+                                        }
+                                        else if(document.form1.fname.value.search(regx) != -1)
+                                        {
+                                        alert("characters only.. numerics not allowed");
+                                        }
+                                        else if(fname.length < 10 || fname.length > 15)
+                                        {
+                                        alert("First name length should be 10 to 15 chars");
+                                        }
+                                        return false;
+                               }
+
+                               function last_name()
+	                       {
+                                        var lname=document.forms["form1"]["lname"].value
+                                        var regx=/\d/
+
+                                        if(lname=="" || lname==null)
+                                        {
+                                        alert("Last name should not be left blank");
+                                        }
+                                        else if(document.form1.lname.value.search(regx) != -1)
+                                        {
+                                        alert("characters only.. numerics not allowed");
+                                        }
+                                        else if(lname.length<10 || lname.length>20)
+                                        {
+                                        alert("Last name length should be 10 to 15 chars");
+                                        }
+                                       return false;
+                                }
+
+                                function email_valid()
+	                        {
+                                        var mail=document.forms["form1"]["email"].value
+                                         atposition=mail.indexOf("@");
+                                         dotposition=mail.lastIndexOf(".");
+                                        if(mail=="" || mail==null)
+                                        {
+                                        alert("email address must be given");
+                                        }
+                                         else if(atposition < 6 || atposition > mail.length || dotposition < (atposition + 4) || dotposition > mail.length)
+                                         {
+                                          alert("Invalid email address");
+                                         }
+                                        return false;
+                                }
+
+                                function password()
+	                        {
+                                        var pswd=document.forms["form1"]["pwd"].value
+                                        if(pswd=="" || pswd==null)
+                                        {
+                                        alert("Password is mandatory");
+                                        }
+                                        else if(pswd.length < 8 || pswd.length > 12)
+                                        {
+                                        alert("password length should be 8 to 12 chars");
+                                        }
+                                       return false;
+                                }
+
+                                function confirm_pwd()
+	                        {
+	                                var pswd=document.forms["form1"]["pwd"].value
+                                        var cpswd=document.forms["form1"]["cpwd"].value
+                                         if(cpswd=="" || cpswd==null)
+                                          {
+                                          alert("confirm Password is must");
+                                          }
+                                          else if(cpswd != pswd)
+                                          {
+                                          alert("confirm password must be matched with password");
+                                         }
+                                         return false;
+                                }
+
+                                function radio_button(x)
+	                        {
+                                        if(x.checked==false)
+                                        alert("Gender was not selected, make it select");
+                                       return false;
+                                }
+
+                                 function select_box(sel)
+	                        {
+                                         if(sel.selectedIndex==false)
+                                        alert("select from drop box for qualification");
+                                       return false;
+                                }
+
+                                function checking(x)
+                                {
+                                         if(x.checked==false)
+                                        alert("Select atleast on check box");
+                                        return false;
+                                }
+
+
+                </script>
+        </head>
+
+
+        <body>
+                <form name="form1" method="post">
+                First Name: <input type="text" name="fname" size=20px  onblur="return first_name()"> </br></br>
+
+                Last Name:<input type="text" name="lname" size=20px onblur=" return last_name()"></br></br>
+
+                Email:<input type="text" id="email" size=30px onblur=" return email_valid()"></br></br>
+
+                Password:<input type="password" name="pwd" size=20px onblur=" return password()"></br></br>
+
+                Confirm Password:<input type="password" name="cpwd" size=20px onblur=" return confirm_pwd()"></br></br>
+
+                Gender:<input type="radio" name="gender" value="male" onblur=" return radio_button(this)"> Male
+
+                           <input type="radio" name="gender" value="female" onblur=" return radio_button(this)"> Female</br></br>
+
+                Qualification:<select name="qual" onblur=" select_box(this)">
+                        <option >Select One</option>
+                        <option value="mca">MCA</option>
+                        <option value="mba">MBA</option>
+                        <option value="b.tech">B.Tech</option>
+                        <option value="b.com">B.Com</option>
+               </select> </br></br>
+
+                Hobbies: </br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="chk1" value="1" onblur="return checking(this)"> Dancing </br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="chk1" value="2" onblur="return checking(this)">Singing</br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="chk1" value="3" onblur="return checking(this)">Reading</br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="chk1" value="4" onblur="return checking(this)">Chating</br></br>
+
+                 &nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Submit" onClick="submit_val()" >
+                 </form>
+        </body>
+</html>
+
